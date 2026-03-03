@@ -19,26 +19,28 @@ print(f"Lowest score: {np.min(test_scores)}")
 print(f"Range: {np.ptp(test_scores)}")
 
 
-#Task---> 3
+import numpy as np
 import time
-arr = np.arange(1, 50001)
-lis = list(range(1, 50001))
 
-start_np = time.time()
-numpy_sum = np.sum(arr)
-end_np = time.time()
-numpy_time = start_np - end_np
+# Create NumPy array and Python list
+numpy_array = np.arange(1, 50001)
+python_list = list(range(1, 50001))
 
+# Time NumPy sum
+start = time.time()
+numpy_sum = np.sum(numpy_array)
+numpy_time = time.time() - start
 
-start_py = time.time()
-python_sum = sum(lis)
-end_np = time.time()
-python_time = start_np - end_np
+# Time Python sum
+start = time.time()
+python_sum = sum(python_list)
+python_time = time.time() - start
 
-speed_factor = python_time / numpy_time
+# Calculate speedup
+speedup = python_time / numpy_time
 
-print(f"numpy sum: {numpy_sum}")
+print(f"NumPy sum: {numpy_sum}")
 print(f"Python sum: {python_sum}")
-print(f"Numpy time: {numpy_time:.4f}")
-print(f"Python time: {python_time:.4f}")
-print(f"Numpy is {speed_factor:.1f}x faster")
+print(f"NumPy time: {numpy_time:.4f} seconds")
+print(f"Python time: {python_time:.4f} seconds")
+print(f"NumPy is {speedup:.1f}x faster")
