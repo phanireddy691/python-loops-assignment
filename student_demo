@@ -1,0 +1,44 @@
+#lists to store students name
+students = ["Raj", "Priya","Amit","Sneha", "Karan"] 
+
+#tuple to store the subjects
+subjects = ("Math", "Science", "English")
+
+#dictoniaries to the the marks of the students
+#mapping : student name --> list of marks
+student_marks = {
+    "Raj" : [85, 78, 90],
+    "Priya" : [92, 88, 85],
+    "Amit" : [70, 75, 68],
+    "Sneha" : [95, 90, 92],
+    "Karan" : [80, 82, 78]
+    }
+
+print("All Students: ", students)
+print("First 3 students: ", students[0:3])
+print("=" * 50)
+
+#calculating average of marks and allocating the grades
+averages = {}
+unique_grades = set()
+for name, marks in student_marks.items():
+    avg = sum(marks) / len(marks)
+    averages[name] = avg
+   
+#allocating grades
+
+    if avg >= 85 : grade = "A"
+    elif avg >= 70: grade = "B"
+    else : grade = "C"
+    unique_grades.add(grade)
+    print(f"{name} - Average: {avg:.2f} - Grade: {grade}")
+
+
+#top student
+
+top_student = max(averages, key=averages.get)
+
+print("="*50)
+print(f"Student with highest average: {top_student}")
+print("=" *50)
+print("Unique grades earned: ", sorted(unique_grades))
